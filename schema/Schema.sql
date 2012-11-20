@@ -1,0 +1,5 @@
+create table DIRECTORYS (ID numeric(19,0) identity not null, VERSION int not null, USERNAME numeric(19,0) not null, PATH varchar(255) not null, PARENTPATH varchar(255) not null, DIR varchar(20) not null, CREATE_TIME datetime not null, primary key (ID));
+create table FILES (ID numeric(19,0) identity not null, VERSION int not null, USERNAME numeric(19,0) not null, ACCOUNT varchar(20) not null, FILENAME varchar(255) not null, PATH varchar(255) not null, FILESIZE numeric(19,0) not null, TYPE varchar(255) default 'unknown' not null, UPLOAD_TIME datetime not null, ISSHARE varchar(255) default 'no' not null, primary key (ID));
+create table USERS (ID numeric(19,0) identity not null, VERSION int not null, USERNAME varchar(20) not null, PASSWORD_MD5 varchar(50) not null, TRUENAME varchar(10) not null, EMAIL varchar(255) not null, primary key (ID));
+alter table DIRECTORYS add constraint FK2A4D9BA6A041E1AA foreign key (USERNAME) references USERS;
+alter table FILES add constraint FK3FCC257A041E1AA foreign key (USERNAME) references USERS;

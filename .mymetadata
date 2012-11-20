@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="NetHardDisk"
+  id="myeclipse.1274625920562"
+  context-root="/NetHardDisk"
+  j2ee-spec="5.0"
+  archive="NetHardDisk.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

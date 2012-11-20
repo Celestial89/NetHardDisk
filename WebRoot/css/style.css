@@ -1,0 +1,16 @@
+body,div,ul,li,form,p{padding:0;list-style-type:none;}
+body{background-color:#FFF;margin-top:7px;}
+body,div,table,select,input,span{font-size:12px;font-family:"Tahoma",Verdana,Arial,ËÎÌו; }
+.tdLabel{text-align: right}
+span{font-size:12px;font-family:ËÎÌו;margin-left:auto;margin-right:auto;line-height:19px; color:red}
+ul,li{clear:both;} 
+img{border:0;}
+input,select{border:#A3BFA8 1px solid;background-color:#FFF;}
+.float_left{float:left;}
+.hide{ display:none;}
+.font_space{letter-spacing:1px;}
+.name_list{width:130px;text-align:right; margin-bottom:12px;padding-top:2px; clear:both;}
+.input_list{width:200px;text-align:left;}
+.input_list1{width:350px;text-align:left;}
+.input_list input{ font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; height:21px; line-height:12px; padding:3px 2px}
+.require{font-size:12px;font-weight:normal;color:#F00;}

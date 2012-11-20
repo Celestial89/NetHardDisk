@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.renwei.model.File" table="FILES">
+		<id name="id" type="long" column="ID">
+            <meta attribute="scope-set">private</meta>
+            <generator class="identity"/>
+        </id>
+        <version name="version" column="VERSION"/>
+        <many-to-one name="user" column="USERNAME" class="org.renwei.model.User" 
+                not-null="true" />
+        <property name="account" type="string">
+            <column name="ACCOUNT" length="20" not-null="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="FILENAME" length="255" not-null="true" />
+        </property>
+        <property name="path" type="string">
+            <column name="PATH" length="255" not-null="true" />
+        </property>
+        <property name="size" type="long">
+            <column name="FILESIZE" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="TYPE" not-null="true"  default="'unknown'" />
+        </property>
+        <property name="uploadTime" type="date">
+            <column name="UPLOAD_TIME" not-null="true" />
+        </property>
+        <property name="isShare" type="string">
+            <column name="ISSHARE" not-null="true"  default="'no'" />
+        </property>
+	</class> 
+</hibernate-mapping>

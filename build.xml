@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<project name="HibernateTest" basedir=".">
+
+  <!-- Set up properties containing important project directories -->
+  <property name="source.root" value="src"/>
+  <property name="lib.dir" value="WebRoot\WEB-INF\lib"/>
+  <property name="class.root" value="WebRoot\WEB-INF\classes"/>
+  <property name="schema.dir" value="schema"/>
+	
+  <path id="project.class.path">
+	    <!-- Include our own classes, of course -->
+	    <pathelement location="${class.root}" />
+	    <!-- Include jars in the project library directory -->
+	    <fileset dir="${lib.dir}">
+	      <include name="*.jar"/>
+	    </fileset>
+  </path>
+
+ <target name="schema">
+  <taskdef name = "hbm2ddlTask" classname = "org.hibernate.tool.ant.HibernateToolTask" classpathref = "project.class.path" />
+  <hbm2ddlTask destdir = "${schema.dir}">
+   <configuration configurationfile ="${class.root}/hibernate.cfg.xml" />
+   <hbm2ddl export="false" console="true" create="true"  drop="false" outputfilename="Schema.sql" />
+  </hbm2ddlTask>
+ </target>
+
+</project>

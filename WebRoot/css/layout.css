@@ -1,0 +1,23 @@
+#slideshow {
+    width: 600px; 
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+#spiclist {
+    width: 600px; 
+    height: 70px;
+    overflow: hidden;
+}
+#slideshow img {
+    border-left-style: none;
+    border-bottom-style: none;
+    border-top-style: none;
+    border-right-style: none;
+}
+#spiclist img {
+    border-left-style: none;
+    border-bottom-style: none;
+    border-top-style: none;
+    border-right-style: none;
+}

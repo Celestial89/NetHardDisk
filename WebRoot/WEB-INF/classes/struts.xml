@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+  <constant name="struts.i18n.encoding" value="UTF-8"/>
+  <constant name="struts.custom.i18n.resources" value="globalResource" />
+  <constant name="struts.multipart.maxSize" value="20000000000" />
+  <package name="default" extends="json-default">  
+    <interceptors>
+			<interceptor name="authorization"
+				class="org.renwei.interceptor.AuthorizationInterceptor" />
+			<interceptor-stack name="netDiskStack">
+				<interceptor-ref name="authorization">
+					<param name="ignoreActions">
+						validate_code,register.*,.*login.* 
+					</param> 
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+	<default-interceptor-ref name="netDiskStack" />
+  
+    <global-results>
+		<result name="success">jsp/result_json.jsp</result>
+		<result name="error">jsp/result_json.jsp</result>
+		<result name="login" type="redirectAction">login_page</result>
+	</global-results>	
+	 
+    <action name="login" class="org.renwei.action.LoginAction">
+        <result name="success" type="redirect">main_page.action</result>
+		<result name="input">jsp/login.jsp</result>
+    </action>
+    <action name="register" class="org.renwei.action.RegisterAction">
+		<result name="success">jsp/result.jsp</result>
+		<result name="input" >jsp/register.jsp</result>
+	</action>
+	<action name="relogin" class="org.renwei.action.ReloginAction">
+		<result name="success" type="redirectAction">login_page</result>
+	</action>
+	<action name="dir" class="org.renwei.action.DirAction">
+		<result name="success">jsp/dir_result.jsp</result>
+	</action>	
+	<action name="createDir" class="org.renwei.action.CreateDirAction">
+		<result name="success">jsp/create_dir_result.jsp</result>
+	</action>
+	<action name="file" class="org.renwei.action.FileAction">
+		<result name="success">jsp/file_result.jsp</result>
+	</action>	
+	<action name="showShare" class="org.renwei.action.showShareAction">
+		<result name="success">jsp/file_result.jsp</result>
+	</action>
+	<action name="showClassify" class="org.renwei.action.ShowClassifyAction">
+		<result name="success">jsp/file_result.jsp</result>
+	</action>	
+	<action name="upload" class="org.renwei.action.UploadAction">
+		<result name="success">jsp/upload_success.jsp</result>
+	</action>
+	<action name="disk" class="org.renwei.action.DiskAction">
+		<result name="success">jsp/disk_result.jsp</result>
+	</action>
+	<action name="delete" class="org.renwei.action.DeleteAction"/>
+	<action name="downloadFile" class="org.renwei.action.DownloadFileAction"/>
+	<action name="downloadMoreFile" class="org.renwei.action.DownloadMoreFileAction"/>
+	<action name="share" class="org.renwei.action.ShareAction"/>
+    
+    <action name="*_page">
+			<result>jsp/{1}.jsp</result>
+	</action>
+	
+	<action name="validate_code"
+			class="org.renwei.action.ValidationCodeAction" />
+  </package>
+</struts>
+

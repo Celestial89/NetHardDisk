@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.renwei.model.Directory" table="DIRECTORYS">
+		<id name="id" type="long" column="ID">
+            <meta attribute="scope-set">private</meta>
+            <generator class="identity"/>
+        </id>
+        <version name="version" column="VERSION"/>
+        <many-to-one name="user" column="USERNAME" class="org.renwei.model.User" 
+                not-null="true" />
+        <property name="path" type="string">
+            <column name="PATH" length="255" not-null="true" />
+        </property>
+        <property name="parentPath" type="string">
+            <column name="PARENTPATH" length="255" not-null="true" />
+        </property>
+        <property name="dir" type="string">
+            <column name="DIR" length="20" not-null="true" />
+        </property>
+        <property name="createTime" type="date">
+            <column name="CREATE_TIME" not-null="true" />
+        </property>
+	</class>
+</hibernate-mapping>
